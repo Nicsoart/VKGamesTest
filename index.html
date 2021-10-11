@@ -9,26 +9,14 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build4.json", {onProgress: UnityProgress});
-    </script>
-
-    <script src="https://yandex.ru/games/sdk/v2"></script>
-    <script type = "text/javascript" language = "javascript">
-    var ysdk;
-    var fullscreenID = 'R-A-732088-5';
-    var horizontalbannerID = 'R-A-732088-7';
-
-    </script>
-    <script>
-      YaGames.init( { adv: { onAdvClose: wasShown => { console.info('adv closed!'); } } })
-      .then(ysdk_local => {
-          ysdk = ysdk_local;
-      });
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/VKGame1.json", {onProgress: UnityProgress});
     </script>
 
     <!-- Yandex.RTB -->
     <script>window.yaContextCb=window.yaContextCb||[]</script>
     <script src="https://yandex.ru/ads/system/context.js" async></script>
+
+    <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
 
   </head>
   <body>
@@ -41,6 +29,14 @@
     function YandexAdsInitialization() {
       document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'none';
       document.getElementById('yandex_rtb_' + horizontalbannerID).style.display = 'none';
+
+      VK.init(function() {
+        // API initialization succeeded
+        // Your code here
+      }, function() {
+        // API initialization failed
+        // Can reload page here
+      }, '5.131');
     }
 
     function ShowInterstational() {
