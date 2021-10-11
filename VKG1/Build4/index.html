@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Tanks</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build4.json", {onProgress: UnityProgress});
+    </script>
+
+    <script src="https://yandex.ru/games/sdk/v2"></script>
+    <script type = "text/javascript" language = "javascript">
+    var ysdk;
+    var fullscreenID = 'R-A-732088-5';
+    var horizontalbannerID = 'R-A-732088-7';
+
+    </script>
+    <script>
+      YaGames.init( { adv: { onAdvClose: wasShown => { console.info('adv closed!'); } } })
+      .then(ysdk_local => {
+          ysdk = ysdk_local;
+      });
+    </script>
+
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 182vh; height: 100vh; max-width: 100vw; max-height: 55vw;"></div>
+    </div>
+
+    <script type = "text/javascript" language = "javascript">
+
+    function YandexAdsInitialization() {
+      document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'none';
+      document.getElementById('yandex_rtb_' + horizontalbannerID).style.display = 'none';
+    }
+
+    function ShowInterstational() {
+      console.log("Show inters");
+      ysdk.adv.showFullscreenAdv({
+        callbacks: {
+          onClose: function(wasShown) {
+            console.info('Inters adv closed!');
+            unityInstance.SendMessage('AdsManager', 'ShowedInterstationalHandler');
+          },
+          onError: function(error) {
+            console.info('Inters adv error!');
+            unityInstance.SendMessage('AdsManager', 'ErrorInterstationalHandler');
+          }
+        }
+      });
+    }
+
+    function ShowFullScreen() {
+      document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'block';
+      Ya.Context.AdvManager.render({
+        renderTo: 'yandex_rtb_' + fullscreenID,
+        blockId: fullscreenID,
+        onError: (data) => {
+        console.log('type', data.type); // Тип ошибки: error или warning
+        CloseFullScreen();
+    },
+        onRender: (data) => {
+          console.log(data.product);
+          unityInstance.SendMessage('AdsManager', 'FullScreenShowed');
+        }
+      })
+    }
+
+    function ShowMobileFullScreen() {
+    }
+
+    function CloseFullScreen() {
+      document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'none';
+    }
+
+    function CloseMobileFullScreen() {
+    }
+
+    function ShowBanner() {
+      document.getElementById('yandex_rtb_' + horizontalbannerID).style.display = 'block';
+      Ya.Context.AdvManager.render({
+        renderTo: 'yandex_rtb_' + horizontalbannerID,
+        blockId: horizontalbannerID
+      })
+    }
+
+    function ShowMobileBanner() {
+    }
+
+    function CloseBanner() {
+      document.getElementById('yandex_rtb_' + horizontalbannerID).style.display = 'none';
+    }
+
+    function CloseMobileBanner() {
+    }
+
+    function ShowRewardVideo() {
+      console.log("Show reward");
+      ysdk.adv.showRewardedVideo({
+        callbacks: {
+          onOpen: () => {
+            console.log('Video ad open.');
+            unityInstance.SendMessage('AdsManager', 'OnOpenRewardHandler');
+          },
+          onRewarded: () => {
+            console.log('Rewarded!');
+            unityInstance.SendMessage('AdsManager', 'OnRewardedHandler');
+          },
+          onClose: () => {
+            console.log('Video ad closed.');
+            unityInstance.SendMessage('AdsManager', 'OnCloseRewardHandler');
+          },
+          onError: (e) => {
+            console.log('Error while open video ad:', e);
+            unityInstance.SendMessage('AdsManager', 'OnErrorRewardHandler');
+          }
+        }
+      })
+    }
+  </script>
+
+  <!-- Full Screen -->
+  <div id="yandex_rtb_R-A-732088-5" style="position: fixed; margin-top: 9.45vh; margin-bottom: 9.45vh; width: 100vw; height: 81.1vh"></div>
+
+  <!-- Horizontal Banner -->
+  <div id="yandex_rtb_R-A-732088-7" style="margin-top: 88.8vh; margin-left: auto; margin-right: auto; width: 182vh; height: 10vh"></div>
+
+  </body>
+</html>
