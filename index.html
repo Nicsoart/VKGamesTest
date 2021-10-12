@@ -12,6 +12,11 @@
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/VKGame1.json", {onProgress: UnityProgress});
     </script>
 
+    <script type = "text/javascript" language = "javascript">
+    var fullscreenID = 'R-A-1324864-1';
+    var horizontalbannerID = 'R-A-1324864-2';
+    </script>
+
     <!-- Yandex.RTB -->
     <script>window.yaContextCb=window.yaContextCb||[]</script>
     <script src="https://yandex.ru/ads/system/context.js" async></script>
@@ -21,7 +26,15 @@
   </head>
   <body>
     <div class="webgl-content">
-      <div id="unityContainer" style="width: 182vh; height: 100vh; max-width: 100vw; max-height: 55vw;"></div>
+
+    <div id="unityContainer" style="position:relative; width: 182vh; height: 100vh; max-width: 100vw; max-height: 55vw"></div>
+
+      <!-- Full Screen -->
+    <div id="yandex_rtb_R-A-1324864-1" style="position: absolute; top: 16%; width: 182vh; height: 67vh; max-width: 100vw; max-height: 36.85vw"></div>
+
+    <!-- Horizontal Banner -->
+    <div id="yandex_rtb_R-A-1324864-2" style="position: absolute; bottom: 0;  width: 182vh; height: 10vh; max-width: 100vw; max-height: 5.5vw"></div>
+
     </div>
 
     <script type = "text/javascript" language = "javascript">
@@ -30,13 +43,7 @@
       document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'none';
       document.getElementById('yandex_rtb_' + horizontalbannerID).style.display = 'none';
 
-      VK.init(function() {
-        // API initialization succeeded
-        // Your code here
-      }, function() {
-        // API initialization failed
-        // Can reload page here
-      }, '5.131');
+      unityInstance.SendMessage('AdsManager', 'VerticalInitialization', false);
     }
 
     function ShowInterstational() {
@@ -100,35 +107,9 @@
     }
 
     function ShowRewardVideo() {
-      console.log("Show reward");
-      ysdk.adv.showRewardedVideo({
-        callbacks: {
-          onOpen: () => {
-            console.log('Video ad open.');
-            unityInstance.SendMessage('AdsManager', 'OnOpenRewardHandler');
-          },
-          onRewarded: () => {
-            console.log('Rewarded!');
-            unityInstance.SendMessage('AdsManager', 'OnRewardedHandler');
-          },
-          onClose: () => {
-            console.log('Video ad closed.');
-            unityInstance.SendMessage('AdsManager', 'OnCloseRewardHandler');
-          },
-          onError: (e) => {
-            console.log('Error while open video ad:', e);
-            unityInstance.SendMessage('AdsManager', 'OnErrorRewardHandler');
-          }
-        }
-      })
     }
+    
   </script>
-
-  <!-- Full Screen -->
-  <div id="yandex_rtb_R-A-732088-5" style="position: fixed; margin-top: 9.45vh; margin-bottom: 9.45vh; width: 100vw; height: 81.1vh"></div>
-
-  <!-- Horizontal Banner -->
-  <div id="yandex_rtb_R-A-732088-7" style="margin-top: 88.8vh; margin-left: auto; margin-right: auto; width: 182vh; height: 10vh"></div>
 
   </body>
 </html>
