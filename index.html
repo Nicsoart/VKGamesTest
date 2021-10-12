@@ -47,19 +47,6 @@
     }
 
     function ShowInterstational() {
-      console.log("Show inters");
-      ysdk.adv.showFullscreenAdv({
-        callbacks: {
-          onClose: function(wasShown) {
-            console.info('Inters adv closed!');
-            unityInstance.SendMessage('AdsManager', 'ShowedInterstationalHandler');
-          },
-          onError: function(error) {
-            console.info('Inters adv error!');
-            unityInstance.SendMessage('AdsManager', 'ErrorInterstationalHandler');
-          }
-        }
-      });
     }
 
     function ShowFullScreen() {
@@ -108,7 +95,7 @@
 
     function ShowRewardVideo() {
     }
-    
+
   </script>
 
   </body>
