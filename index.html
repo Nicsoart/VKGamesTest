@@ -27,19 +27,10 @@
 
     <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
 
+    <script>window.bridge=window.vkBridge||[]</script>
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
-    <script>
-    import bridge from '@vkontakte/vk-bridge';
-
-    // Sends event to client
-    bridge.send('VKWebAppInit');
-
-    // Subscribes to event, sended by client
-    bridge.subscribe(e => console.log(e));
-
-    vkBridge.send('VKWebAppInit');
-    </script>
+    <script>vkBridge.send('VKWebAppInit');</script>
 
   </head>
 
