@@ -31,12 +31,16 @@
     <script>vkBridge.send('VKWebAppInit');</script>
 
     <script type="text/javascript">
-      function ShowPrealoader() {
-        vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
-        .then(data =>{})
-        .catch(error =>{});
+      function VKInitialization() {
+        VK.init(function() {
+          vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
+          .then(data =>{})
+          .catch(error =>{});
+        }, function() {
+          VKInitialization();
+        }, '5.131');
       }
-      window.onload = ShowPrealoader;
+      window.onload = VKInitialization;
     </script>
 
   </head>
@@ -73,11 +77,6 @@
       document.getElementById('yandex_rtb_' + rewardvideoID).style.display = 'none';
 
       unityInstance.SendMessage('AdsManager', 'VerticalInitialization', false);
-
-      VK.init(function() {
-      }, function() {
-        VKAdsInitialization();
-      }, '5.131');
     }
 
     function ShowFullScreen() {
