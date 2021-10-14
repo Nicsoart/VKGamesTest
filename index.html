@@ -79,11 +79,11 @@
 
     function ShowFullScreen() {
       bridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
-      .then(data {})
-      .catch(error {
+      .then(data =>{})
+      .catch(error =>{
         bridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-        .then(data {})
-        .catch(error {
+        .then(data =>{})
+        .catch(error =>{
           ShowYandexFullScreen();
         });
       });
@@ -129,11 +129,11 @@
 
     function ShowMobileFullScreen() {
       bridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
-      .then(data {})
-      .catch(error {
+      .then(data =>{})
+      .catch(error =>{
         bridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-        .then(data {})
-        .catch(error {
+        .then(data =>{})
+        .catch(error =>{
           ShowYandexMobileFullScreen();
         });
       });
@@ -199,8 +199,8 @@
 
     function ShowRewardVideo() {
       bridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
-      .then(data {})
-      .catch(error {
+      .then(data =>{})
+      .catch(error =>{
         ShowYandexRewardVideo();
       });
     }
