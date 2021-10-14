@@ -72,14 +72,10 @@
     }
 
     function ShowFullScreen() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
+      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
       .then(data =>{})
       .catch(error =>{
-        vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-        .then(data =>{})
-        .catch(error =>{
-          ShowYandexFullScreen();
-        });
+        ShowYandexFullScreen();
       });
     }
 
@@ -98,14 +94,10 @@
     }
 
     function ShowMobileFullScreen() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
+      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
       .then(data =>{})
       .catch(error =>{
-        vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-        .then(data =>{})
-        .catch(error =>{
-          ShowYandexMobileFullScreen();
-        });
+        ShowYandexMobileFullScreen();
       });
     }
 
@@ -164,7 +156,9 @@
 
     function ShowRewardVideo() {
       vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
-      .then(data =>{})
+      .then(data =>{
+        unityInstance.SendMessage('AdsManager', 'GetReward');
+      })
       .catch(error =>{
         ShowYandexRewardVideo();
       });
