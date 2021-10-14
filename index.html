@@ -106,6 +106,25 @@
     function ShowVKFullScreen() {
       document.getElementById('vk_ads_' + vkfullscreenID).style.display = 'block';
 
+      setTimeout(function() {
+        var adsParams = {"ad_unit_id":vkfullscreenID,"ad_unit_hash":"e366863fa5f7c9579d440113ddfcae41"};
+        function vkAdsInit() {
+          VK.Widgets.Ads('vk_ads_' + vkfullscreenID, {}, adsParams);
+        }
+        if (window.VK && VK.Widgets) {
+          vkAdsInit();
+        } else {
+          if (!window.vkAsyncInitCallbacks) window.vkAsyncInitCallbacks = [];
+          vkAsyncInitCallbacks.push(vkAdsInit);
+          var protocol = ((location.protocol === 'https:') ? 'https:' : 'http:');
+          var adsElem = document.getElementById('vk_ads_' + vkfullscreenID);
+          var scriptElem = document.createElement('script');
+          scriptElem.type = 'text/javascript';
+          scriptElem.async = true;
+          scriptElem.src = protocol + '//vk.com/js/api/openapi.js?169';
+          adsElem.parentNode.insertBefore(scriptElem, adsElem.nextSibling);
+        }
+      }, 0);
     }
 
     function ShowMobileFullScreen() {
