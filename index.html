@@ -69,7 +69,7 @@
 
       unityInstance.SendMessage('AdsManager', 'VerticalInitialization', false);
 
-      document.getElementById('yandex_rtb_' + vkfullscreenID).style.display = 'none';
+      document.getElementById('vk_ads_' + vkfullscreenID).style.display = 'none';
 
       VK.init(function() {
       }, function() {
@@ -146,7 +146,7 @@
         blockId: mobilefullscreenID,
         onError: (data) => {
           CloseMobileFullScreen();
-          //ShowVKFullScreen();
+          ShowVKFullScreen();
         },
         onRender: (data) => {
           unityInstance.SendMessage('AdsManager', 'FullScreenShowed');
