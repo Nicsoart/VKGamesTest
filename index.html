@@ -33,9 +33,6 @@
     <script type="text/javascript">
       function VKInitialization() {
         VK.init(function() {
-          vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
-          .then(data =>{})
-          .catch(error =>{});
         }, function() {
           VKInitialization();
         }, '5.131');
