@@ -28,6 +28,8 @@
 
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
     <script>vkBridge.send('VKWebAppInit');</script>
 
   </head>
@@ -55,6 +57,12 @@
     </div>
 
     <script type = "text/javascript" language = "javascript">
+
+    $(document).ready ( function(){
+      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"preloader"})
+      .then(data =>{})
+      .catch(error =>{});
+    });
 
     function YandexAdsInitialization() {
       document.getElementById('yandex_rtb_' + fullscreenID).style.display = 'none';
