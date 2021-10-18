@@ -82,6 +82,7 @@
     {
       VK.api("users.get", {"fields": "photo_100", "v":"5.131"}, function (data) {
         let avatar = data.response.photo_100;
+        alert(avatar);
         unityInstance.SendMessage('AdsManager', 'SetUserPhoto', avatar);
       });
     }
