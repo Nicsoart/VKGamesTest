@@ -80,8 +80,8 @@
 
     function VKUserInit()
     {
-      VK.api("users.get", {"fields": "photo_200_orig", "v":"5.73"}, function (data) {
-        let avatar = data.response.photo_200_orig;
+      VK.api("users.get", {"fields": "photo_100", "v":"5.73"}, function (data) {
+        let avatar = data.response.photo_100;
         unityInstance.SendMessage('AdsManager', 'SetUserPhoto', avatar);
       });
     }
