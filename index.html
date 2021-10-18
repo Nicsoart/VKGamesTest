@@ -103,14 +103,13 @@
 
     function VKAddInMenu()
     {
-      VK.callMethod("showSettingsBox", 256) {
-        VK.addCallback('onSettingsChanged', function true() {
-          unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
-        });
-        VK.addCallback('onSettingsCancel', function false() {
-          unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
-        });
-      };
+      VK.callMethod("showSettingsBox", 256);
+      VK.addCallback('onSettingsChanged', function true() {
+        unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
+      });
+      VK.addCallback('onSettingsCancel', function false() {
+        unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
+      });
     }
 
     function ShowFullScreen() {
