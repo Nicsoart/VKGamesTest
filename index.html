@@ -1,3 +1,4 @@
+//<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -83,9 +84,9 @@
       VK.callMethod("showInviteBox");
     }
 
-    function VKPublish(text, image, link)
+    function VKPublish(text, image)
     {
-      VK.api("wall.post", {"message": text, "attachments" : ''+image+', '+link+'', "v":"5.73"}, function (data) {
+      VK.api("wall.post", {"message": text, "attachments" : ''+image+', https://vk.com/app7969827', "v":"5.73"}, function (data) {
       });
     }
 
