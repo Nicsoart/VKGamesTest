@@ -81,8 +81,8 @@
     function VKUserInit()
     {
       VK.api("users.get", {"fields": "photo_100", "v":"5.131"}, function (data) {
-        alert(data.response.photo_100);
-        unityInstance.SendMessage('AdsManager', 'SetUserPhoto', data.response.photo_100);
+        alert(data.response.photo_50);
+        unityInstance.SendMessage('AdsManager', 'SetUserPhoto', data.response.photo_50);
       });
     }
 
@@ -106,10 +106,10 @@
     {
       VK.callMethod("showSettingsBox", 256);
       VK.addCallback('onSettingsChanged', function truef() {
-        unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
+        //unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
       });
       VK.addCallback('onSettingsCancel', function falsef() {
-        unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
+        //unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
       });
     }
 
