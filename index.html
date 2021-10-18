@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | 4Photo</title>
+    <title>Unity WebGL Player | AdvertisingTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build3vk2.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build21.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -37,11 +37,11 @@
           VKInitialization();
         }, '5.131');
       }
+
       window.onload = VKInitialization;
     </script>
 
   </head>
-
   <body>
     <div class="webgl-content">
 
@@ -74,6 +74,41 @@
       document.getElementById('yandex_rtb_' + rewardvideoID).style.display = 'none';
 
       unityInstance.SendMessage('AdsManager', 'VerticalInitialization', false);
+    }
+
+    function VKUserInit()
+    {
+      VK.api("users.get", {"fields": "photo_200_orig", "v":"5.73"}, function (data) {
+        unityInstance.SendMessage('AdsManager', 'SetUserPhoto', data.response[0].photo_200_orig);
+      });
+    }
+
+    function VKInvite()
+    {
+      VK.callMethod("showInviteBox");
+    }
+
+    function VKPublish(var text, var image)
+    {
+      VK.api("wall.post", {"message": ''text'', "attachments" : ''image', 'window.location'', "v":"5.73"}, function (data) {
+      });
+    }
+
+    function TShowLink()
+    {
+      unityInstance.SendMessage('AdsManager', 'TShowLink', true, window.location);
+    }
+
+    function VKAddInMenu()
+    {
+      VK.callMethod("showSettingsBox", 256) {
+        VK.addCallback('onSettingsChanged', function true() {
+          unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
+        });
+        VK.addCallback('onSettingsCancel', function false() {
+          unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
+        });
+      };
     }
 
     function ShowFullScreen() {
