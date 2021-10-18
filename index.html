@@ -18,6 +18,8 @@
     var rewardvideoID = 'R-A-1324864-3';
     var mobilefullscreenID = 'R-A-1324864-4';
     var mobilebannerID = 'R-A-1324864-5';
+    var text;
+    var image;
     </script>
 
     <!-- Yandex.RTB -->
@@ -88,7 +90,7 @@
       VK.callMethod("showInviteBox");
     }
 
-    function VKPublish(let text, let image)
+    function VKPublish(text, image)
     {
       VK.api("wall.post", {"message": ''text'', "attachments" : ''image', 'window.location'', "v":"5.73"}, function (data) {
       });
