@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | 4Photo</title>
+    <title>Unity WebGL Player | AdvertisingTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build6.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build21.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -20,6 +20,7 @@
     var mobilebannerID = 'R-A-1324864-5';
     var text;
     var image;
+    var link;
     </script>
 
     <!-- Yandex.RTB -->
@@ -56,7 +57,7 @@
     <div id="yandex_rtb_R-A-1324864-2" style="position: absolute; bottom: 0;  width: 100vw; height: 10vh"></div>
 
     <!-- Reward Video -->
-    <div id="yandex_rtb_R-A-1324864-3" style="position: absolute; top: 16%; width: 182vh; height: 67vh"></div>
+    <div id="yandex_rtb_R-A-1324864-3" style="position: absolute; top: 16%; width: 100vh; height: 67vh"></div>
 
     <!-- Mobile Full Screen -->
     <div id="yandex_rtb_R-A-1324864-4" style="position: absolute; top: 16%; width: 100vw; height: 67vh"></div>
@@ -83,9 +84,9 @@
       VK.callMethod("showInviteBox");
     }
 
-    function VKPublish(text, image)
+    function VKPublish(text, image, link)
     {
-      VK.api("wall.post", {"message": text, "attachments" : ''+image+', ' +window.location+'', "v":"5.73"}, function (data) {
+      VK.api("wall.post", {"message": text, "attachments" : ''+image+', ' +link+'', "v":"5.73"}, function (data) {
       });
     }
 
@@ -208,6 +209,5 @@
     }
 
   </script>
-
   </body>
 </html>
