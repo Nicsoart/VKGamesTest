@@ -95,18 +95,13 @@
 
     function TShowLink()
     {
-      unityInstance.SendMessage('AdsManager', 'TShowLink', window.location);
+      //unityInstance.SendMessage('AdsManager', 'TShowLink', window.location);
+      alert(window.location);
     }
 
     function VKAddInMenu()
     {
       VK.callMethod("showSettingsBox", 256);
-      //VK.addCallback('onSettingsChanged', function truef() {
-        //unityInstance.SendMessage('AdsManager', 'AddInMenuController', true);
-      //});
-      //VK.addCallback('onSettingsCancel', function falsef() {
-        //unityInstance.SendMessage('AdsManager', 'AddInMenuController', false);
-      //});
     }
 
     function ShowFullScreen() {
