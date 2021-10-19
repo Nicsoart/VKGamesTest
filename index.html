@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build6.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build7.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -19,7 +19,6 @@
     var mobilefullscreenID = 'R-A-1324864-4';
     var mobilebannerID = 'R-A-1324864-5';
     var text;
-    var image;
     var link;
     </script>
 
@@ -84,9 +83,9 @@
       VK.callMethod("showInviteBox");
     }
 
-    function VKPublish(text, image, link)
+    function VKPublish(text, link)
     {
-      VK.api("wall.post", {"message": text, "attachments" : ''+image+','+link+'', "v":"5.73"}, function (data) {
+      VK.api("wall.post", {"message": text, "attachments" : link, "v":"5.73"}, function (data) {
       });
     }
 
@@ -209,6 +208,5 @@
     }
 
   </script>
-
   </body>
 </html>
