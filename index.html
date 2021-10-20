@@ -79,7 +79,7 @@
       vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
       .then(data =>{})
       .catch(error =>{
-        TryToLoadFullScreen();
+        unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
       });
     }
 
@@ -89,7 +89,7 @@
         unityInstance.SendMessage('AdsManager', 'GetReward');
       })
       .catch(error =>{
-        ShowYandexRewardVideo();
+        unityInstance.SendMessage('AdsManager', 'ShowYandexRewardVideo');
       });
     }
 
