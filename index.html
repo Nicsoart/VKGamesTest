@@ -35,22 +35,22 @@
   <body>
     <div class="webgl-content">
 
-    <div id="unityContainer" style="position:relative; width: 182vh; height: 100vh"></div>
+    <div id="unityContainer" style="position:relative; width: 100vw; height: 100vh"></div>
 
       <!-- Full Screen -->
-    <div id="yandex_rtb_R-A-1324864-1" style="position: absolute; top: 16%; width: 182vh; height: 67vh"></div>
+    <div id="yandex_rtb_R-A-1324864-1" style="position: absolute; top: 16%; width: 100vw; height: 67vh"></div>
 
     <!-- Mobile Full Screen -->
-    <div id="yandex_rtb_R-A-1324864-4" style="position: absolute; top: 16%; width: 182vh; height: 67vh"></div>
+    <div id="yandex_rtb_R-A-1324864-4" style="position: absolute; top: 16%; width: 100vw; height: 67vh"></div>
 
     <!-- Horizontal Banner -->
-    <div id="yandex_rtb_R-A-1324864-2" style="position: absolute; bottom: 0;  width: 182vh; height: 10vh"></div>
+    <div id="yandex_rtb_R-A-1324864-2" style="position: absolute; bottom: 0;  width: 100vw; height: 10vh"></div>
 
     <!-- Mobile Banner -->
-    <div id="yandex_rtb_R-A-1324864-5" style="position: absolute;  bottom: 0; width: 182vh; height: 10vh"></div>
+    <div id="yandex_rtb_R-A-1324864-5" style="position: absolute;  bottom: 0; width: 100vw; height: 10vh"></div>
 
     <!-- Reward Video -->
-    <div id="yandex_rtb_R-A-1324864-3" style="position: absolute; top: 16%; width: 182vh; height: 67vh"></div>
+    <div id="yandex_rtb_R-A-1324864-3" style="position: absolute; top: 16%; width: 100vw; height: 67vh"></div>
 
     </div>
 
@@ -89,7 +89,7 @@
         unityInstance.SendMessage('AdsManager', 'GetReward');
       })
       .catch(error =>{
-        unityInstance.SendMessage('AdsManager', 'ShowYandexRewardVideo');
+        unityInstance.SendMessage('AdsManager', 'TryToLoadCustomRewardVideo');
       });
     }
 
