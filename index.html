@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build27.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build29.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -30,6 +30,13 @@
     <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
     <!-- VK.bridge -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+
+    <script>
+      VK.init(function() {
+      }, function() {
+      }, '5.131');
+      vkBridge.send('VKWebAppInit');
+    </script>
 
   </head>
   <body>
@@ -63,21 +70,15 @@
       document.getElementById('yandex_rtb_' + mobilebannerID).style.display = 'none';
       document.getElementById('yandex_rtb_' + rewardvideoID).style.display = 'none';
 
-      unityInstance.SendMessage('AdsManager', 'VerticalInitialization', false);
-    }
-
-    function VKInitialization() {
-      VK.init(function() {
-      }, function() {
-        VKInitialization();
-      }, '5.131');
-      vkBridge.send('VKWebAppInit');
+      unityInstance.SendMessage('AdsManager', 'VerticalInitialization', 0);
     }
 
 // VK
     function ShowVKInterstational() {
       vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-      .then(data =>{})
+      .then(data =>{
+        unityInstance.SendMessage('AdsManager', 'AdShowed');
+      })
       .catch(error =>{
         unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
       });
@@ -212,5 +213,6 @@
     }
 
   </script>
+
   </body>
 </html>
