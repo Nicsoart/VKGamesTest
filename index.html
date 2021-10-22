@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build10.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build11.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -98,8 +98,25 @@
       VK.callMethod("showInviteBox");
     }
 
+    function VKAddToFavorites()
+    {
+      bridge.send("VKWebAppAddToFavorites");
+    }
+
+    function VKMobileShare(link)
+    {
+      bridge.send("VKWebAppShare", {"link": link});
+    }
+
     function VKPublish(text, link) {
       VK.api("wall.post", {"message": text, "attachments" : link, "v":"5.73"}, function (data) {
+      });
+    }
+
+    function VKMobilePublish(text, link) {
+      bridge.send("VKWebAppShowWallPostBox", {
+        "message": text,
+        "attachments": link
       });
     }
 
