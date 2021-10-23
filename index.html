@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build13.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build14.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -99,14 +99,8 @@
       VK.callMethod("showInviteBox");
     }
 
-    function VKAddToFavorites()
-    {
-      vkBridge.send("VKWebAppAddToFavorites");
-    }
-
-    function VKMobileShare(link)
-    {
-      vkBridge.send("VKWebAppShare", {"link": link});
+    function VKMobileInvite() {
+      vkBridge.send("VKWebAppShowInviteBox");
     }
 
     function VKPublish(text, link) {
@@ -123,10 +117,6 @@
 
     function VKAddInMenu() {
       VK.callMethod("showSettingsBox", 256);
-    }
-
-    function VKMobileAddInMenu() {
-      vkBridge.send("VKWebAppAddToHomeScreen");
     }
 
 // Full Screen
