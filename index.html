@@ -31,7 +31,7 @@
     <!-- VK.bridge -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
-    <script src="https://www.npmjs.com/package/@vkontakte/vk-bridge"></script>
+    <script src="https://www.npmjs.com/package/@vkontakte/vk-bridge/jest.config.js"></script>
 
     <script>
       VK.init(function() {
@@ -40,7 +40,6 @@
 
       vkBridge.send('VKWebAppInit');
 
-      import bridge from 'https://www.npmjs.com/package/@vkontakte/vk-bridge';
       bridge.send('VKWebAppInit');
     </script>
 
