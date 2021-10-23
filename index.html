@@ -39,8 +39,11 @@
       }, function() {
       }, '5.131');
 
-      //vkBridge.send('VKWebAppInit');
-      '@vkontakte/vk-bridge'.send('VKWebAppInit');
+      vkBridge => {
+          bridge = vkBridge;
+      };
+      
+      bridge.send('VKWebAppInit');
     </script>
 
   </head>
