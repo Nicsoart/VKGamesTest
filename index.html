@@ -38,14 +38,6 @@
       }, '5.131');
 
       vkBridge.send('VKWebAppInit');
-
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-      .then(data =>{
-        unityInstance.SendMessage('AdsManager', 'AdShowed');
-      })
-      .catch(error =>{
-        unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
-      });
     </script>
 
   </head>
