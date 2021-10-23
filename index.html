@@ -110,12 +110,12 @@
 
     function VKAddToFavorites()
     {
-      bridge.send("VKWebAppAddToFavorites");
+      vkBridge.send("VKWebAppAddToFavorites");
     }
 
     function VKMobileShare(link)
     {
-      bridge.send("VKWebAppShare", {"link": link});
+      vkBridge.send("VKWebAppShare", {"link": link});
     }
 
     function VKPublish(text, link) {
@@ -124,7 +124,7 @@
     }
 
     function VKMobilePublish(text, link) {
-      bridge.send("VKWebAppShowWallPostBox", {
+      vkBridge.send("VKWebAppShowWallPostBox", {
         "message": text,
         "attachments": link
       });
