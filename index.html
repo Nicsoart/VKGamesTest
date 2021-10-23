@@ -36,6 +36,8 @@
       }, function() {
       }, '5.131');
       vkBridge.send('VKWebAppInit');
+      import bridge from '@vkontakte/vk-bridge';
+      bridge.send('VKWebAppInit');
     </script>
 
   </head>
@@ -100,12 +102,12 @@
 
     function VKAddToFavorites()
     {
-      vkBridge.send("VKWebAppAddToFavorites");
+      Bridge.send("VKWebAppAddToFavorites");
     }
 
     function VKMobileShare(link)
     {
-      vkBridge.send("VKWebAppShare", {"link": link});
+      Bridge.send("VKWebAppShare", {"link": link});
     }
 
     function VKPublish(text, link) {
@@ -114,7 +116,7 @@
     }
 
     function VKMobilePublish(text, link) {
-      vkBridge.send("VKWebAppShowWallPostBox", {
+      Bridge.send("VKWebAppShowWallPostBox", {
         "message": text,
         "attachments": link
       });
