@@ -37,8 +37,10 @@
       VK.init(function() {
       }, function() {
       }, '5.131');
+
       vkBridge.send('VKWebAppInit');
-      import bridge from '@vkontakte/vk-bridge';
+
+      import bridge from 'https://www.npmjs.com/package/@vkontakte/vk-bridge';
       bridge.send('VKWebAppInit');
     </script>
 
