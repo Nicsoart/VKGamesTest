@@ -38,7 +38,7 @@
       }, function() {
       }, '5.131');
 
-      vkBridge.send('VKWebAppInit');
+      //vkBridge.send('VKWebAppInit');
       bridge.send('VKWebAppInit');
     </script>
 
@@ -79,7 +79,7 @@
 
 // VK
     function ShowVKInterstational() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
+      bridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
       .then(data =>{
         unityInstance.SendMessage('AdsManager', 'AdShowed');
       })
@@ -89,7 +89,7 @@
     }
 
     function ShowVKRewardVideo() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
+      bridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
       .then(data =>{
         unityInstance.SendMessage('AdsManager', 'GetReward');
       })
