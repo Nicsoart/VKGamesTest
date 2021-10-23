@@ -38,7 +38,9 @@
       }, '5.131');
 
       vkBridge.send('VKWebAppInit', {
-        bridge = vkBridge
+        vkBridge => {
+            bridge = vkBridge;
+        }
       });
     </script>
 
