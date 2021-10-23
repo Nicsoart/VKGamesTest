@@ -31,7 +31,7 @@
     <!-- VK.bridge -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
-    <script src="https://www.npmjs.com/package/@vkontakte/vk-bridge"></script>
+    <script src="https://www.npmjs.com/package/@vkontakte/vk-bridge/dist/index.umd.js"></script>
 
     <script>
       VK.init(function() {
@@ -39,10 +39,8 @@
       }, '5.131');
 
       vkBridge.send('VKWebAppInit');
-
-      window.bridge==window.vkBridge||[];
-
-      window.bridge.send('VKWebAppInit');
+      import bridge from '@vkontakte/vk-bridge';
+      bridge.send('VKWebAppInit');
     </script>
 
   </head>
@@ -107,12 +105,12 @@
 
     function VKAddToFavorites()
     {
-      Bridge.send("VKWebAppAddToFavorites");
+      bridge.send("VKWebAppAddToFavorites");
     }
 
     function VKMobileShare(link)
     {
-      Bridge.send("VKWebAppShare", {"link": link});
+      bridge.send("VKWebAppShare", {"link": link});
     }
 
     function VKPublish(text, link) {
@@ -121,7 +119,7 @@
     }
 
     function VKMobilePublish(text, link) {
-      Bridge.send("VKWebAppShowWallPostBox", {
+      bridge.send("VKWebAppShowWallPostBox", {
         "message": text,
         "attachments": link
       });
