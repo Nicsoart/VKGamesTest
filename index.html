@@ -9,11 +9,10 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build11.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build12.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
-    var bridge;
     var fullscreenID = 'R-A-1324864-1';
     var mobilefullscreenID = 'R-A-1324864-4';
     var horizontalbannerID = 'R-A-1324864-2';
@@ -124,6 +123,10 @@
 
     function VKAddInMenu() {
       VK.callMethod("showSettingsBox", 256);
+    }
+
+    function VKMobileAddInMenu() {
+      bridge.send("VKWebAppAddToHomeScreen");
     }
 
 // Full Screen
