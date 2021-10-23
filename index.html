@@ -30,8 +30,6 @@
     <!-- VK.API -->
     <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
     <!-- VK.bridge -->
-    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/index.umd.js"></script>
 
     <script>
@@ -39,11 +37,9 @@
       }, function() {
       }, '5.131');
 
-      vkBridge => {
-          bridge = vkBridge;
-      };
-      
-      bridge.send('VKWebAppInit');
+      vkBridge.send('VKWebAppInit', {
+        bridge = vkBridge;
+      });
     </script>
 
   </head>
