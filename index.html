@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build2.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build5.json", {onProgress: UnityProgress});
     </script>
 
     <script type = "text/javascript" language = "javascript">
@@ -30,10 +30,6 @@
     <script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
     <!-- VK.bridge -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-
-    <script>
-      vkBridge.send('VKWebAppInit');
-    </script>
 
   </head>
   <body>
@@ -71,6 +67,18 @@
     }
 
 // VK
+    function VKInitialization() {
+      VK.init(function() {
+      }, function() {
+        VKInitialization();
+      }, '5.131');
+    }
+
+    function VKMobileInitialization()
+    {
+      vkBridge.send('VKWebAppInit');
+    }
+
     function ShowVKInterstational() {
       vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
       .then(data =>{
@@ -220,6 +228,6 @@
       document.getElementById('yandex_rtb_' + rewardvideoID).style.display = 'none';
     }
   </script>
-
+  
   </body>
 </html>
