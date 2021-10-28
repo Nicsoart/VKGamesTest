@@ -80,23 +80,23 @@
     }
 
     function ShowVKInterstational() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-      .then(data =>{
-        unityInstance.SendMessage('AdsManager', 'AdShowed');
-      })
-      .catch(error =>{
-        unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
-      });
+      //vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
+      //.then(data =>{
+      //  unityInstance.SendMessage('AdsManager', 'AdShowed');
+      //})
+      //.catch(error =>{
+      //  unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
+      //});
     }
 
     function ShowVKRewardVideo() {
-      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
-      .then(data =>{
-        unityInstance.SendMessage('AdsManager', 'GetReward');
-      })
-      .catch(error =>{
-        unityInstance.SendMessage('AdsManager', 'TryToLoadCustomRewardVideo');
-      });
+      //vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
+      //.then(data =>{
+      //  unityInstance.SendMessage('AdsManager', 'GetReward');
+      //})
+      //.catch(error =>{
+      //  unityInstance.SendMessage('AdsManager', 'TryToLoadCustomRewardVideo');
+      //});
     }
 
     function VKInvite() {
@@ -228,6 +228,6 @@
       document.getElementById('yandex_rtb_' + rewardvideoID).style.display = 'none';
     }
   </script>
-  
+
   </body>
 </html>
