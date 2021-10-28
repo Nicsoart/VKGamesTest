@@ -90,13 +90,13 @@
     }
 
     function ShowVKRewardVideo() {
-      //vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
-      //.then(data =>{
-      //  unityInstance.SendMessage('AdsManager', 'GetReward');
-      //})
-      //.catch(error =>{
-      //  unityInstance.SendMessage('AdsManager', 'TryToLoadCustomRewardVideo');
-      //});
+      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
+      .then(data =>{
+        unityInstance.SendMessage('AdsManager', 'GetReward');
+      })
+      .catch(error =>{
+        unityInstance.SendMessage('AdsManager', 'TryToLoadCustomRewardVideo');
+      });
     }
 
     function VKInvite() {
