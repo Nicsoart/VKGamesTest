@@ -80,13 +80,13 @@
     }
 
     function ShowVKInterstational() {
-      //vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-      //.then(data =>{
-      //  unityInstance.SendMessage('AdsManager', 'AdShowed');
-      //})
-      //.catch(error =>{
-      //  unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
-      //});
+      vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
+      .then(data =>{
+        unityInstance.SendMessage('AdsManager', 'AdShowed');
+      })
+      .catch(error =>{
+        unityInstance.SendMessage('AdsManager', 'TryToLoadFullScreen');
+      });
     }
 
     function ShowVKRewardVideo() {
